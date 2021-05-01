@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fcc63305cb322456a53c099ab5472bd4",
+    "content-hash": "f6ad94879589bc1532344b221cf61f3f",
     "packages": [
         {
             "name": "2amigos/yii2-selectize-widget",
@@ -351,6 +351,51 @@
             "time": "2018-03-26T11:24:36+00:00"
         },
         {
+            "name": "codemix/yii2-localeurls",
+            "version": "1.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codemix/yii2-localeurls.git",
+                "reference": "f681040b9da5b35a8653041f98bd58c2dd84af07"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codemix/yii2-localeurls/zipball/f681040b9da5b35a8653041f98bd58c2dd84af07",
+                "reference": "f681040b9da5b35a8653041f98bd58c2dd84af07",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "codemix\\localeurls\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Härtl",
+                    "email": "haertl.mike@gmail.com"
+                }
+            ],
+            "description": "Automatic locale/language management for URLs.",
+            "keywords": [
+                "i18n",
+                "locale",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/codemix/yii2-localeurls/issues",
+                "source": "https://github.com/codemix/yii2-localeurls/tree/master"
+            },
+            "time": "2018-06-18T12:11:10+00:00"
+        },
+        {
             "name": "doctrine/lexer",
             "version": "1.2.1",
             "source": {
@@ -551,6 +596,56 @@
                 "source": "https://github.com/ezyang/htmlpurifier/tree/master"
             },
             "time": "2020-06-29T00:56:53+00:00"
+        },
+        {
+            "name": "klisl/yii2-languages",
+            "version": "2.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/klisl/yii2-languages.git",
+                "reference": "b7ed15eba3a6c08e432cf8c5ad9e4d8a1c51d599"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/klisl/yii2-languages/zipball/b7ed15eba3a6c08e432cf8c5ad9e4d8a1c51d599",
+                "reference": "b7ed15eba3a6c08e432cf8c5ad9e4d8a1c51d599",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "~2.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "bootstrap": "klisl\\languages\\Bootstrap"
+            },
+            "autoload": {
+                "psr-4": {
+                    "klisl\\languages\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sergey Klimenchuk",
+                    "email": "ksl80@ukr.net",
+                    "homepage": "https://github.com/klisl/yii2-languages",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Package",
+            "keywords": [
+                "languages",
+                "multilanguage",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/klisl/yii2-languages/issues",
+                "source": "https://github.com/klisl/yii2-languages/tree/2.8"
+            },
+            "time": "2019-04-09T19:28:37+00:00"
         },
         {
             "name": "mdmsoft/yii2-admin",

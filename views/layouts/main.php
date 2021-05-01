@@ -10,6 +10,7 @@ use app\models\Category;
 use app\models\Page;
 use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
+use app\components\LanguageDropdown;
 
 AppAsset::register($this);
 ?>
@@ -32,6 +33,8 @@ AppAsset::register($this);
                 <!-- Main -->
 <div id="main">
     <div class="inner">
+        <br>
+        <?= LanguageDropdown::widget(); ?>
         <?= Alert::widget() ?>
         <?= $content ?>
         
@@ -47,6 +50,7 @@ AppAsset::register($this);
                     <form method="get" action="<?= Url::to(['/site/index']) ?>">
                         <input type="text" name="query" id="query" placeholder="Search" />
                     </form>
+
                 </section>
 
             <!-- Menu -->

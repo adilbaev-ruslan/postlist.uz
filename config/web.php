@@ -5,6 +5,7 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'basic',
+    'name' => 'PostList.uz',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'language' => 'qq',
@@ -36,6 +37,19 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'kjskldjfs$#@$#@9090',
             'baseUrl' => '',
+        ],
+        'i18n' => [
+            'translations' => [
+                'yii*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/common/messages',
+                    'sourceLanguage' => 'en',
+                    'fileMap' => [
+                        'yii' => 'yii.php',
+                        'yii/error' => 'error.php',
+                    ],
+                ],
+            ],
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -73,8 +87,12 @@ $config = [
         ],
         'db' => $db,
         'urlManager' => [
+            'class' => 'codemix\localeurls\UrlManager',
+            'languages' => ['en', 'ru', 'qq', 'uz'],
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'enableDefaultLanguageUrlCode'=>true,
+            'enableLanguageDetection'=>false,
             'rules' => [
             ],
         ],
@@ -86,7 +104,7 @@ $config = [
         'class' => 'mdm\admin\components\AccessControl',
         'allowActions' => [
             'site/*',
-            'post/*'
+            'post/*',
             // 'cloud/*',
             // 'rbac/*',
         ]

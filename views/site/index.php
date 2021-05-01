@@ -4,11 +4,10 @@
 
 use yii\helpers\Url;
 use yii\data\Pagination;
+use app\components\Functions;
 
 $this->title = 'My Yii Application';
 ?>
-
-
         <?php if(!empty($dataProvider)) : ?>
             <section>
             <div class="posts">
@@ -16,8 +15,8 @@ $this->title = 'My Yii Application';
         
                 <article>
                 <a href="<?= Url::to(['post/view', 'id' => $model->id]) ?>" class="image"><img src="<?= Yii::$app->homeUrl ?>uploads/<?= $model->image ?>" alt="" /></a>
-                <h3><?= $model->title ?></h3>
-                <p><?= $model->description ?></p>
+                <h3><?= Functions::translateJson($model->title) ?></h3>
+                <p><?= Functions::translateJson($model->description) ?></p>
                 <ul class="actions">
                     <li><a href="<?= Url::to(['post/view', 'id' => $model->id]) ?>" class="button">More</a></li>
                 </ul>
