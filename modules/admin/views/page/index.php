@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use app\components\Functions;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\search\PageSearch */
@@ -27,7 +28,13 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             // 'id',
-            'title',
+            // 'title',
+            [
+                'attribute' => 'title',
+                'value' => function($model) {
+                    return Functions::translateJson($model->title);
+                }
+            ],
             // 'content:ntext',
             'count_view',
             'status',

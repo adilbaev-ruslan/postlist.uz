@@ -24,6 +24,9 @@ class Page extends \yii\db\ActiveRecord
         return 'page';
     }
 
+    public $translate_title;
+    public $translate_content;
+
     /**
      * {@inheritdoc}
      */
@@ -33,6 +36,7 @@ class Page extends \yii\db\ActiveRecord
             [['title', 'content', 'status'], 'required'],
             [['content', 'status'], 'string'],
             [['count_view'], 'integer'],
+            [['translate_title', 'translate_content'], 'safe'],
             [['create_at'], 'safe'],
             [['title'], 'string', 'max' => 255],
         ];
@@ -46,7 +50,9 @@ class Page extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'title' => 'Title',
+            'translate_title' => 'Title',
             'content' => 'Content',
+            'translate_content' => 'Content',
             'count_view' => 'Count View',
             'status' => 'Status',
             'create_at' => 'Create At',

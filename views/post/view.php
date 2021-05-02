@@ -21,6 +21,6 @@ $this->title = Functions::translateJson($model->title);
         <?= Functions::translateJson($model->content); ?>
     </div>
 
-    <p>Category: <?= $model->category->name ?> | Author: <?= $model->user->full_name; ?> | Count View: <?= $model->count_view; ?> | Create at: <?= date('d-m-Y, H:i', strtotime($model->create_at)) ?></p>
+    <p>Category: <?= Functions::translateJson($model->category->name) ?> | Author: <?= $model->user->full_name; ?> | Count View: <?= $model->count_view; ?> | Create at: <?= date('d-m-Y, H:i', strtotime($model->create_at)) ?></p>
 
 </section>

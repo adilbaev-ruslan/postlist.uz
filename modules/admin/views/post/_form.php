@@ -7,6 +7,7 @@ use app\models\Category;
 use dosamigos\tinymce\TinyMce;
 use dosamigos\selectize\SelectizeTextInput;
 use app\models\TagAssign;
+use app\components\Functions;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Post */
@@ -31,6 +32,7 @@ use app\models\TagAssign;
         <div class="tab-content">
             <?php $j = 0; foreach($languages as $language => $lable) : ?>
                 <div id="<?= $language ?>" class="tab-pane fade in <?= ($j == 0) ? 'active' : '' ?>">
+                    <br>
                     <?= $form->field($model, 'translate_title[' . $language . ']')->textInput(['maxlength' => true]) ?>
                     <?= $form->field($model, 'translate_description[' . $language . ']')->textarea(['rows' => 2]) ?>
 
@@ -56,7 +58,7 @@ use app\models\TagAssign;
             $data = ArrayHelper::map(Category::find()->all(), 'id', 'name');
         ?>
 
-        <?= $form->field($model, 'category_id')->dropDownList($data); ?>
+        <?= $form->field($model, 'category_id')->dropDownList(Functions::translateArray($data)); ?>
         <?= $form->field($model, 'status')->dropDownList([ 'active' => 'Active', 'inactive' => 'Inactive', ], ['prompt' => '']) ?>
 
         <?php 

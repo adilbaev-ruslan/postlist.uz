@@ -11,6 +11,7 @@ use app\models\Page;
 use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
 use app\components\LanguageDropdown;
+use app\components\Functions;
 
 AppAsset::register($this);
 ?>
@@ -50,7 +51,6 @@ AppAsset::register($this);
                     <form method="get" action="<?= Url::to(['/site/index']) ?>">
                         <input type="text" name="query" id="query" placeholder="Search" />
                     </form>
-
                 </section>
 
             <!-- Menu -->
@@ -63,13 +63,13 @@ AppAsset::register($this);
             <li><a href="<?= Yii::$app->homeUrl; ?>">Bas bet</a></li>
             <?php if($category) : ?>
                 <?php foreach($category as $item) : ?>
-                    <li><a href="<?= Url::to(['site/index', 'category' => $item->id]) ?>"><?= $item->name ?></a></li>
+                    <li><a href="<?= Url::to(['site/index', 'category' => $item->id]) ?>"><?= Functions::translateJson($item->name) ?></a></li>
                 <?php endforeach; ?>
             <?php endif; ?>
                 
             <?php if($pages) : ?>
                 <?php foreach($pages as $page) : ?>
-                    <li><a href="<?= Url::to(['site/view', 'id' => $page->id]) ?>"><?= $page->title; ?></a></li>
+                    <li><a href="<?= Url::to(['site/view', 'id' => $page->id]) ?>"><?= Functions::translateJson($page->title); ?></a></li>
                 <?php endforeach; ?>
             <?php endif; ?>
 
