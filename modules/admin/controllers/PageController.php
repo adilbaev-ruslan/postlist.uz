@@ -66,7 +66,11 @@ class PageController extends Controller
     {
         $model = new Page();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+
+            $model->title = json_encode($model->translate_title, JSON_UNESCAPED_UNICODE);
+            $model->content = json_encode($model->translate_content, JSON_UNESCAPED_UNICODE);
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -86,7 +90,10 @@ class PageController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $model->title = json_encode($model->translate_title, JSON_UNESCAPED_UNICODE);
+            $model->content = json_encode($model->translate_content, JSON_UNESCAPED_UNICODE);
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

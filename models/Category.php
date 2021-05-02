@@ -20,6 +20,8 @@ class Category extends \yii\db\ActiveRecord
         return 'category';
     }
 
+    public $translate_name;
+
     /**
      * {@inheritdoc}
      */
@@ -28,6 +30,7 @@ class Category extends \yii\db\ActiveRecord
         return [
             [['name'], 'required'],
             [['name'], 'string', 'max' => 255],
+            [['translate_name'], 'safe'],
         ];
     }
 
@@ -39,6 +42,7 @@ class Category extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Categorya',
+            'translate_name' => 'Categorya',
         ];
     }
 }

@@ -11,6 +11,7 @@ use yii\widgets\Breadcrumbs;
 use app\assets\BackendAsset;
 use yii\helpers\Url;
 use mdm\admin\components\Helper;
+use app\components\LanguageDropdown;
 
 BackendAsset::register($this);
 ?>
@@ -53,6 +54,9 @@ BackendAsset::register($this);
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <?= LanguageDropdown::widget(); ?>
+                </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>

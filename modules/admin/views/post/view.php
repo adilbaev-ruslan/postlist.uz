@@ -34,39 +34,60 @@ $this->params['breadcrumbs'][] = $this->title;
         $tags_str = implode(',', $tags);
     ?>
 
+    <?php $languages = Yii::$app->params['languages']; ?>
+
+        <ul class="nav nav-tabs">
+            <?php $i = 0; foreach($languages as $language => $lable) : ?>
+                <li class="<?= ($i == 0) ? 'active' : '' ?>"><a data-toggle="tab" href="#<?= $language ?>"><?= $lable ?></a></li>
+                <?php $i++; ?>
+            <?php endforeach; ?>
+        </ul>
+
+        <div class="tab-content">
+            <?php $j = 0; foreach($languages as $language => $lable) : ?>
+                <div id="<?= $language ?>" class="tab-pane fade in <?= ($j == 0) ? 'active' : '' ?>">
+                    <br>
+                    <table class="table table-striped table-bordered detail-view">
+                        <tbody>
+                            <tr>
+                                <th>Title</th>
+                                <td><?= Functions::translateJson($model->title, $language) ?></td>
+                            </tr>
+                            <tr>
+                                <th>Description</th>
+                                <td><?= Functions::translateJson($model->description, $language) ?></td>
+                            </tr>
+                            <tr>
+                                <th>Content</th>
+                                <td><?= Functions::translateJson($model->content, $language) ?></td>
+                            </tr>
+                        </tbody>
+                    </table>  
+                  </div>
+                  <?php $j++; ?>
+            <?php endforeach; ?>
+        </div>
+
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
             'id',
-            // 'title',
-            [
-                'attribute' => 'title',
-                'value' => Functions::translateJson($model->title),
-            ],
             [
                 'attribute' => 'image',
                 'value' => $model->image ? Html::img('/uploads/' . $model->image, ['style' => 'width:200px']) : null,
                 'format' => 'html',
             ],
-            'category.name',
+            // 'category.name',
+            [
+                'attribute' => 'category.name',
+                'value' => Functions::translateJson($model->category->name),
+            ],
             [
                 'attribute' => 'tag',
                 'value' => $tags_str,
                 'format' => 'raw',
             ],
             'user.full_name',
-            // 'description',
-            [
-                'attribute' => 'description',
-                'value' => Functions::translateJson($model->description),
-                'format' => 'html',
-            ],
-            // 'content:html',
-            [
-                'attribute' => 'content',
-                'value' => Functions::translateJson($model->content),
-                'format' => 'html',
-            ],
             'count_view',
             'status',
             'create_at',

@@ -5,6 +5,7 @@ use yii\grid\GridView;
 use app\models\Category;
 use app\models\User;
 use yii\helpers\ArrayHelper;
+use app\components\Functions;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\search\PostSearch */
@@ -35,14 +36,20 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             // 'id',
-            'title',
+            // 'title',
+            [
+                'attribute' => 'title',
+                'value' => function($model) {
+                    return Functions::translateJson($model->title);
+                }
+            ],
             // 'category.name',
             [
                 'attribute' => 'category_id',
                 'value' => function($model) {
                     return $model->category->name;
                 },
-                'filter' => $category,
+                'filter' => Functions::translateArray($category),
             ],
             // 'user.full_name',
             [

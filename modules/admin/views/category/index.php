@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use app\components\Functions;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\search\CategorySearch */
@@ -29,11 +30,13 @@ $this->params['breadcrumbs'][] = $this->title;
             	'contentOptions'=>[ 'style'=>'width: 30px'],
             ],
 
-            'name',
-            // [
-            // 	'attribute' => 'name',
-            // 	'headerOptions' => ['style' => 'width: 20px'],
-            // ],
+            // 'name',
+            [
+                'attribute' => 'name',
+                'value' => function($model) {
+                    return Functions::translateJson($model->name);
+                },
+            ],
 
             [
             	'class' => 'yii\grid\ActionColumn',

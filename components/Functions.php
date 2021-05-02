@@ -42,4 +42,12 @@ class Functions extends \yii\base\Component
 			}
 		}
 	}
+
+	public static function translateArray($array, $language=null) {
+		$resultArray = null;
+		foreach ($array as $key => $value) {
+			$resultArray[$key] = Functions::translateJson($value, $language);
+		}
+		return $resultArray;
+	}
 }
