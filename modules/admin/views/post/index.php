@@ -47,7 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'category_id',
                 'value' => function($model) {
-                    return $model->category->name;
+                    return Functions::translateJson($model->category->name);
                 },
                 'filter' => Functions::translateArray($category),
             ],
